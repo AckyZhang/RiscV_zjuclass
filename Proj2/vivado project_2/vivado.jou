@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Apr 22 21:41:15 2022
+# Process ID: 15176
+# Current directory: E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17300 E:\360MoveData\Users\Acedia\Desktop\Proj2\vivado project_2\project_2.xpr
+# Log file: E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2/vivado.log
+# Journal file: E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2\vivado.jou
+# Running On: MSI, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 8, Host memory: 34171 MB
+#-----------------------------------------------------------
+start_gui
+open_project {E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2/project_2.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config {E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2/wave.wcfg}
+source testBench.tcl
+close_sim

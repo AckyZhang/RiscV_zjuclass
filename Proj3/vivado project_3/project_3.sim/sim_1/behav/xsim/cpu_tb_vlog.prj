@@ -1,0 +1,31 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/ALU.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/BranchDecisionMaking.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/ControlUnit.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/DataExt.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/EXSegReg.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/HarzardUnit.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/IDSegReg.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/IFSegReg.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/ImmOperandUnit.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/MEMSegReg.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/NPC_Generator.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/RV32Core.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/RegisterFile.v" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/WBSegReg.v" \
+
+sv xil_defaultlib  --include "../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode" \
+"../../../../project_3.srcs/sources_1/imports/testbenches/InstructionRAMmm16.sv" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CacheSrcCode/cache.sv" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CacheSrcCode/main_mem.sv" \
+"../../../../project_3.srcs/sources_1/imports/testbenches/memmatmul16.sv" \
+
+verilog xil_defaultlib  --include "../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode" \
+"../../../../project_3.srcs/sources_1/imports/3_CacheLab/CPUSrcCode/Testbench/cpu_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

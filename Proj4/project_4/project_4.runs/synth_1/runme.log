@@ -1,0 +1,66 @@
+
+*** Running vivado
+    with args -log RV32Core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source RV32Core.tcl
+
+
+
+****** Vivado v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source RV32Core.tcl -notrace
+Command: synth_design -top RV32Core -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10168
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1252.414 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'RV32Core' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/RV32Core.v:6]
+INFO: [Synth 8-6157] synthesizing module 'NPC_Generator' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/NPC_Generator.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'NPC_Generator' (1#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/NPC_Generator.v:12]
+INFO: [Synth 8-6157] synthesizing module 'IFSegReg' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/IFSegReg.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'IFSegReg' (2#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/IFSegReg.v:12]
+INFO: [Synth 8-6157] synthesizing module 'IDSegReg' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/IDSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'InstructionRam' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BRAMModule/InstructionRam.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'InstructionRam' (3#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BRAMModule/InstructionRam.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'IDSegReg' (4#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/IDSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ControlUnit' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ControlUnit.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'ControlUnit' (5#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ControlUnit.v:18]
+INFO: [Synth 8-6157] synthesizing module 'ImmOperandUnit' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ImmOperandUnit.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ImmOperandUnit' (6#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ImmOperandUnit.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RegisterFile' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/RegisterFile.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RegisterFile' (7#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/RegisterFile.v:6]
+INFO: [Synth 8-6157] synthesizing module 'EXSegReg' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/EXSegReg.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'EXSegReg' (8#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/EXSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ALU.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (9#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/ALU.v:7]
+INFO: [Synth 8-6157] synthesizing module 'BranchDecisionMaking' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BranchDecisionMaking.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'BranchDecisionMaking' (10#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BranchDecisionMaking.v:7]
+INFO: [Synth 8-6157] synthesizing module 'MEMSegReg' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/MEMSegReg.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'MEMSegReg' (11#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/MEMSegReg.v:12]
+INFO: [Synth 8-6157] synthesizing module 'WBSegReg' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/WBSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DataRam' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BRAMModule/DataRam.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'DataRam' (12#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/BRAMModule/DataRam.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'WBSegReg' (13#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/WBSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DataExt' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/DataExt.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'DataExt' (14#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/DataExt.v:8]
+INFO: [Synth 8-6157] synthesizing module 'HarzardUnit' [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/HarzardUnit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'HarzardUnit' (15#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/HarzardUnit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RV32Core' (16#1) [E:/proj/project_4/project_4.srcs/sources_1/imports/Core/RV32Core.v:6]
+WARNING: [Synth 8-7129] Port ICacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DCacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AluContrl[0] in module ALU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[0] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module IDSegReg is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1252.414 ; gain = 0.000
+---------------------------------------------------------------------------------

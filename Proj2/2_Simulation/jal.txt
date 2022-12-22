@@ -1,0 +1,58 @@
+gcc -o Bin2Data ./Utils/Bin2Data.c
+./Utils/riscv32-elf-as jal.S -o jal.o -march=rv32i
+./Utils/riscv32-elf-ld jal.o -o jal.om
+./Utils/riscv32-elf-objcopy --dump-section .text=jal-Inst.bin jal.om
+./Bin2Data jal-Inst.bin jal.inst
+./Utils/riscv32-elf-objcopy -O binary jal.om jal-Data.bin
+./Bin2Data jal-Data.bin jal.data
+./Utils/objdump -d jal.om 
+
+jal.om:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010080 <_start>:
+   10080:	00000013          	nop
+
+00010084 <test_2>:
+   10084:	00200193          	li	gp,2
+   10088:	00000093          	li	ra,0
+   1008c:	0100026f          	jal	tp,1009c <target_2>
+
+00010090 <linkaddr_2>:
+   10090:	00000013          	nop
+   10094:	00000013          	nop
+   10098:	0400006f          	j	100d8 <fail>
+
+0001009c <target_2>:
+   1009c:	00000117          	auipc	sp,0x0
+   100a0:	ff410113          	addi	sp,sp,-12 # 10090 <linkaddr_2>
+   100a4:	02411a63          	bne	sp,tp,100d8 <fail>
+
+000100a8 <test_3>:
+   100a8:	00100093          	li	ra,1
+   100ac:	0140006f          	j	100c0 <test_3+0x18>
+   100b0:	00108093          	addi	ra,ra,1
+   100b4:	00108093          	addi	ra,ra,1
+   100b8:	00108093          	addi	ra,ra,1
+   100bc:	00108093          	addi	ra,ra,1
+   100c0:	00108093          	addi	ra,ra,1
+   100c4:	00108093          	addi	ra,ra,1
+   100c8:	00300e93          	li	t4,3
+   100cc:	00300193          	li	gp,3
+   100d0:	01d09463          	bne	ra,t4,100d8 <fail>
+   100d4:	00301463          	bne	zero,gp,100dc <pass>
+
+000100d8 <fail>:
+   100d8:	00000a6f          	jal	s4,100d8 <fail>
+
+000100dc <pass>:
+   100dc:	00100193          	li	gp,1
+
+000100e0 <finish1>:
+   100e0:	00000a6f          	jal	s4,100e0 <finish1>
+   100e4:	c0001073          	unimp
+	...
+rm -f *.om *.o *.bin Bin2Data
+rm jal-Data.bin jal-Inst.bin

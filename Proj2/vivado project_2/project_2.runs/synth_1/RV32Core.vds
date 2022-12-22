@@ -1,0 +1,330 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Thu Apr 21 23:09:23 2022
+# Process ID: 7796
+# Current directory: E:/proj/project_2/project_2.runs/synth_1
+# Command line: vivado.exe -log RV32Core.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RV32Core.tcl
+# Log file: E:/proj/project_2/project_2.runs/synth_1/RV32Core.vds
+# Journal file: E:/proj/project_2/project_2.runs/synth_1\vivado.jou
+# Running On: MSI, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 8, Host memory: 34171 MB
+#-----------------------------------------------------------
+source RV32Core.tcl -notrace
+Command: synth_design -top RV32Core -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6172
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'RV32Core' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/RV32Core.v:6]
+INFO: [Synth 8-6157] synthesizing module 'NPC_Generator' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/NPC_Generator.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'NPC_Generator' (1#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/NPC_Generator.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IFSegReg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/IFSegReg.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IFSegReg' (2#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/IFSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IDSegReg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/IDSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'InstructionRam' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/InstructionRam.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'InstructionRam' (3#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/InstructionRam.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IDSegReg' (4#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/IDSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ControlUnit' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ControlUnit.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ControlUnit.v:138]
+INFO: [Synth 8-6155] done synthesizing module 'ControlUnit' (5#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ControlUnit.v:7]
+INFO: [Synth 8-6157] synthesizing module 'ImmOperandUnit' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ImmOperandUnit.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ImmOperandUnit' (6#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ImmOperandUnit.v:7]
+INFO: [Synth 8-6157] synthesizing module 'RegisterFile' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/RegisterFile.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RegisterFile' (7#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/RegisterFile.v:6]
+INFO: [Synth 8-6157] synthesizing module 'EXSegReg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/EXSegReg.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'EXSegReg' (8#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/EXSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ALU.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (9#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ALU.v:7]
+INFO: [Synth 8-6157] synthesizing module 'BranchDecisionMaking' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BranchDecisionMaking.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'BranchDecisionMaking' (10#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BranchDecisionMaking.v:7]
+INFO: [Synth 8-6157] synthesizing module 'MEMSegReg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/MEMSegReg.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'MEMSegReg' (11#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/MEMSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WBSegReg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/WBSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DataRam' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/DataRam.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'DataRam' (12#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/DataRam.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WBSegReg' (13#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/WBSegReg.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DataExt' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/DataExt.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'DataExt' (14#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/DataExt.v:8]
+INFO: [Synth 8-6157] synthesizing module 'HarzardUnit' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/HarzardUnit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'HarzardUnit' (15#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/HarzardUnit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RV32Core' (16#1) [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/RV32Core.v:6]
+WARNING: [Synth 8-7129] Port ICacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DCacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[0] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module IDSegReg is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+WARNING: [Synth 8-327] inferring latch for variable 'MemWriteD_reg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/ControlUnit.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'OUT_reg' [E:/proj/project_2/project_2.srcs/sources_1/imports/1_CPUCore_src/DataExt.v:22]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 48    
+	                5 Bit    Registers := 5     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 11    
++---RAMs : 
+	             128K Bit	(4096 X 32 bit)          RAMs := 2     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 28    
+	   2 Input    8 Bit        Muxes := 2     
+	   8 Input    4 Bit        Muxes := 2     
+	  10 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   6 Input    3 Bit        Muxes := 1     
+	  10 Input    3 Bit        Muxes := 3     
+	   7 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	  10 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 3     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 40    
+	   4 Input    1 Bit        Muxes := 1     
+	  10 Input    1 Bit        Muxes := 1     
+	   6 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port ICacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DCacheMiss in module HarzardUnit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module WBSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A[0] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[1] in module IDSegReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port A2[0] in module IDSegReg is either unconnected or has no load
+INFO: [Synth 8-3971] The signal "WBSegReg1/DataRamInst/ram_cell_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|IDSegReg1   | InstructionRamInst/ram_cell_reg | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|WBSegReg1   | DataRamInst/ram_cell_reg        | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|IDSegReg1   | InstructionRamInst/ram_cell_reg | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|WBSegReg1   | DataRamInst/ram_cell_reg        | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
++------------+---------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance IDSegReg1/InstructionRamInst/ram_cell_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance WBSegReg1/DataRamInst/ram_cell_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |    66|
+|3     |LUT1     |     6|
+|4     |LUT2     |   100|
+|5     |LUT3     |   122|
+|6     |LUT4     |   321|
+|7     |LUT5     |   285|
+|8     |LUT6     |   875|
+|9     |MUXF7    |   277|
+|10    |RAMB36E1 |     8|
+|11    |FDCE     |   992|
+|12    |FDRE     |   447|
+|13    |LD       |    35|
+|14    |IBUF     |   134|
+|15    |OBUF     |    64|
++------+---------+------+
+
+Report Instance Areas: 
++------+-----------------------+---------------+------+
+|      |Instance               |Module         |Cells |
++------+-----------------------+---------------+------+
+|1     |top                    |               |  3734|
+|2     |  ControlUnit1         |ControlUnit    |     3|
+|3     |  RegisterFile1        |RegisterFile   |  1824|
+|4     |  DataExt1             |DataExt        |    32|
+|5     |  EXSegReg1            |EXSegReg       |   506|
+|6     |  IDSegReg1            |IDSegReg       |   231|
+|7     |    InstructionRamInst |InstructionRam |   132|
+|8     |  IFSegReg1            |IFSegReg       |    41|
+|9     |  ImmOperandUnit1      |ImmOperandUnit |    42|
+|10    |  MEMSegReg1           |MEMSegReg      |   197|
+|11    |  WBSegReg1            |WBSegReg       |   658|
+|12    |    DataRamInst        |DataRam        |    69|
++------+-----------------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1251.621 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1251.621 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 386 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1251.621 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 35 instances were transformed.
+  LD => LDCE: 35 instances
+
+Synth Design complete, checksum: 20240496
+INFO: [Common 17-83] Releasing license: Synthesis
+62 Infos, 19 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1251.621 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/proj/project_2/project_2.runs/synth_1/RV32Core.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file RV32Core_utilization_synth.rpt -pb RV32Core_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 21 23:09:58 2022...

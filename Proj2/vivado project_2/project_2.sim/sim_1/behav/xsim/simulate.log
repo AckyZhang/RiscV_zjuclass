@@ -1,0 +1,18 @@
+Time resolution is 1 ps
+Initialing reg values...
+Loading DataRam Content from file...
+WARNING: file E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu.data could not be opened
+Failed to Open E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu.data, Do Not Load DataRam values from file!
+Loading InstRam Content from file...
+WARNING: file E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu.inst could not be opened
+Failed to Open E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu.inst, Do Not Load InstRam values from file!
+Start Instruction Execution!
+Finish Instruction Execution!
+Saving DataRam Content to file...
+WARNING: file E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu\DataRamContent.txt could not be opened
+Failed to Open E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu\DataRamContent.txt, Do Not Save DataRam values to file!
+Saving InstRam Content to file...
+WARNING: file E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu\InstRamContent.txt could not be opened
+Failed to Open E:\proj\project_2\project_2.srcs\sim_1\imports\2_Simulation\sltiu\InstRamContent.txt, Do Not Save InstRam values to file!
+Simulation Ended!
+$stop called at time : 40040 ns : File "E:/360MoveData/Users/Acedia/Desktop/Proj2/vivado project_2/project_2.srcs/sim_1/imports/2_Simulation/testBench.v" Line 172

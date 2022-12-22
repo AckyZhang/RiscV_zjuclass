@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../project_2.srcs/sources_1/imports/1_CPUCore_src" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/ALU.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/BranchDecisionMaking.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/ControlUnit.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/DataExt.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/DataRam.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/EXSegReg.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/HarzardUnit.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/IDSegReg.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/IFSegReg.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/ImmOperandUnit.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/BRAMModule/InstructionRam.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/MEMSegReg.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/NPC_Generator.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/RV32Core.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/RegisterFile.v" \
+"../../../../project_2.srcs/sources_1/imports/1_CPUCore_src/WBSegReg.v" \
+"../../../../project_2.srcs/sim_1/imports/2_Simulation/testBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

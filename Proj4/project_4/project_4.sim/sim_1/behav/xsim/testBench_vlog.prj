@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../project_4.srcs/sources_1/imports/Core" --include "../../../../../../360MoveData/Users/Acedia/Desktop/4_SIMDLab/Core" \
+"../../../../project_4.srcs/sources_1/imports/Core/ALU.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/BranchDecisionMaking.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/ControlUnit.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/DataExt.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/BRAMModule/DataRam.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/EXSegReg.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/HarzardUnit.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/IDSegReg.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/IFSegReg.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/ImmOperandUnit.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/BRAMModule/InstructionRam.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/MEMSegReg.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/NPC_Generator.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/RV32Core.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/RegisterFile.v" \
+"../../../../project_4.srcs/sources_1/imports/Core/WBSegReg.v" \
+"../../../../project_4.srcs/sim_1/imports/2_Simulation/testBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

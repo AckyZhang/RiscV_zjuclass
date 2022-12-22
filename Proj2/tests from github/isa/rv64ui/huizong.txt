@@ -1,0 +1,654 @@
+//ADD.S 
+ 
+  TEST_RR_OP( 2,  add, 0x00000000, 0x00000000, 0x00000000 );
+  TEST_RR_OP( 3,  add, 0x00000002, 0x00000001, 0x00000001 );
+  TEST_RR_OP( 4,  add, 0x0000000a, 0x00000003, 0x00000007 );
+
+  TEST_RR_OP( 5,  add, 0xffffffffffff8000, 0x0000000000000000, 0xffffffffffff8000 );
+  TEST_RR_OP( 6,  add, 0xffffffff80000000, 0xffffffff80000000, 0x00000000 );
+  TEST_RR_OP( 7,  add, 0xffffffff7fff8000, 0xffffffff80000000, 0xffffffffffff8000 );
+
+  TEST_RR_OP( 8,  add, 0x0000000000007fff, 0x0000000000000000, 0x0000000000007fff );
+  TEST_RR_OP( 9,  add, 0x000000007fffffff, 0x000000007fffffff, 0x0000000000000000 );
+  TEST_RR_OP( 10, add, 0x0000000080007ffe, 0x000000007fffffff, 0x0000000000007fff );
+
+  TEST_RR_OP( 11, add, 0xffffffff80007fff, 0xffffffff80000000, 0x0000000000007fff );
+  TEST_RR_OP( 12, add, 0x000000007fff7fff, 0x000000007fffffff, 0xffffffffffff8000 );
+
+  TEST_RR_OP( 13, add, 0xffffffffffffffff, 0x0000000000000000, 0xffffffffffffffff );
+  TEST_RR_OP( 14, add, 0x0000000000000000, 0xffffffffffffffff, 0x0000000000000001 );
+  TEST_RR_OP( 15, add, 0xfffffffffffffffe, 0xffffffffffffffff, 0xffffffffffffffff );
+
+  TEST_RR_OP( 16, add, 0x0000000080000000, 0x0000000000000001, 0x000000007fffffff );
+
+  TEST_RR_SRC1_EQ_DEST( 17, add, 24, 13, 11 );
+  TEST_RR_SRC2_EQ_DEST( 18, add, 25, 14, 11 );
+  TEST_RR_SRC12_EQ_DEST( 19, add, 26, 13 );
+  TEST_RR_DEST_BYPASS( 20, 0, add, 24, 13, 11 );
+  TEST_RR_DEST_BYPASS( 21, 1, add, 25, 14, 11 );
+  TEST_RR_DEST_BYPASS( 22, 2, add, 26, 15, 11 );
+
+  TEST_RR_SRC12_BYPASS( 23, 0, 0, add, 24, 13, 11 );
+  TEST_RR_SRC12_BYPASS( 24, 0, 1, add, 25, 14, 11 );
+  TEST_RR_SRC12_BYPASS( 25, 0, 2, add, 26, 15, 11 );
+  TEST_RR_SRC12_BYPASS( 26, 1, 0, add, 24, 13, 11 );
+  TEST_RR_SRC12_BYPASS( 27, 1, 1, add, 25, 14, 11 );
+  TEST_RR_SRC12_BYPASS( 28, 2, 0, add, 26, 15, 11 );
+
+  TEST_RR_SRC21_BYPASS( 29, 0, 0, add, 24, 13, 11 );
+  TEST_RR_SRC21_BYPASS( 30, 0, 1, add, 25, 14, 11 );
+  TEST_RR_SRC21_BYPASS( 31, 0, 2, add, 26, 15, 11 );
+  TEST_RR_SRC21_BYPASS( 32, 1, 0, add, 24, 13, 11 );
+  TEST_RR_SRC21_BYPASS( 33, 1, 1, add, 25, 14, 11 );
+  TEST_RR_SRC21_BYPASS( 34, 2, 0, add, 26, 15, 11 );
+
+  TEST_RR_ZEROSRC1( 35, add, 15, 15 );
+  TEST_RR_ZEROSRC2( 36, add, 32, 32 );
+  TEST_RR_ZEROSRC12( 37, add, 0 );
+  TEST_RR_ZERODEST( 38, add, 16, 30 );
+
+//addi.S
+
+  TEST_IMM_OP( 2,  addi, 0x00000000, 0x00000000, 0x000 );
+  TEST_IMM_OP( 3,  addi, 0x00000002, 0x00000001, 0x001 );
+  TEST_IMM_OP( 4,  addi, 0x0000000a, 0x00000003, 0x007 );
+
+  TEST_IMM_OP( 5,  addi, 0xfffffffffffff800, 0x0000000000000000, 0x800 );
+  TEST_IMM_OP( 6,  addi, 0xffffffff80000000, 0xffffffff80000000, 0x000 );
+  TEST_IMM_OP( 7,  addi, 0xffffffff7ffff800, 0xffffffff80000000, 0x800 );
+
+  TEST_IMM_OP( 8,  addi, 0x00000000000007ff, 0x00000000, 0x7ff );
+  TEST_IMM_OP( 9,  addi, 0x000000007fffffff, 0x7fffffff, 0x000 );
+  TEST_IMM_OP( 10, addi, 0x00000000800007fe, 0x7fffffff, 0x7ff );
+
+  TEST_IMM_OP( 11, addi, 0xffffffff800007ff, 0xffffffff80000000, 0x7ff );
+  TEST_IMM_OP( 12, addi, 0x000000007ffff7ff, 0x000000007fffffff, 0x800 );
+
+  TEST_IMM_OP( 13, addi, 0xffffffffffffffff, 0x0000000000000000, 0xfff );
+  TEST_IMM_OP( 14, addi, 0x0000000000000000, 0xffffffffffffffff, 0x001 );
+  TEST_IMM_OP( 15, addi, 0xfffffffffffffffe, 0xffffffffffffffff, 0xfff );
+
+  TEST_IMM_OP( 16, addi, 0x0000000080000000, 0x7fffffff, 0x001 );
+
+  TEST_IMM_SRC1_EQ_DEST( 17, addi, 24, 13, 11 );
+
+  TEST_IMM_DEST_BYPASS( 18, 0, addi, 24, 13, 11 );
+  TEST_IMM_DEST_BYPASS( 19, 1, addi, 23, 13, 10 );
+  TEST_IMM_DEST_BYPASS( 20, 2, addi, 22, 13,  9 );
+
+  TEST_IMM_SRC1_BYPASS( 21, 0, addi, 24, 13, 11 );
+  TEST_IMM_SRC1_BYPASS( 22, 1, addi, 23, 13, 10 );
+  TEST_IMM_SRC1_BYPASS( 23, 2, addi, 22, 13,  9 );
+
+  TEST_IMM_ZEROSRC1( 24, addi, 32, 32 );
+  TEST_IMM_ZERODEST( 25, addi, 33, 50 );
+
+//  and.S
+  TEST_RR_OP( 2, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_OP( 3, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_OP( 4, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_OP( 5, and, 0xf000f000, 0xf00ff00f, 0xf0f0f0f0 );
+
+  TEST_RR_SRC1_EQ_DEST( 6, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC2_EQ_DEST( 7, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC12_EQ_DEST( 8, and, 0xff00ff00, 0xff00ff00 );
+
+  TEST_RR_DEST_BYPASS( 9,  0, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_DEST_BYPASS( 10, 1, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_DEST_BYPASS( 11, 2, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_SRC12_BYPASS( 12, 0, 0, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 13, 0, 1, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC12_BYPASS( 14, 0, 2, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 15, 1, 0, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 16, 1, 1, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC12_BYPASS( 17, 2, 0, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_SRC21_BYPASS( 18, 0, 0, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 19, 0, 1, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC21_BYPASS( 20, 0, 2, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 21, 1, 0, and, 0x0f000f00, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 22, 1, 1, and, 0x00f000f0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC21_BYPASS( 23, 2, 0, and, 0x000f000f, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_ZEROSRC1( 24, and, 0, 0xff00ff00 );
+  TEST_RR_ZEROSRC2( 25, and, 0, 0x00ff00ff );
+  TEST_RR_ZEROSRC12( 26, and, 0 );
+  TEST_RR_ZERODEST( 27, and, 0x11111111, 0x22222222 );
+
+//  andi.S
+  TEST_IMM_OP( 2, andi, 0xff00ff00, 0xff00ff00, 0xf0f );
+  TEST_IMM_OP( 3, andi, 0x000000f0, 0x0ff00ff0, 0x0f0 );
+  TEST_IMM_OP( 4, andi, 0x0000000f, 0x00ff00ff, 0x70f );
+  TEST_IMM_OP( 5, andi, 0x00000000, 0xf00ff00f, 0x0f0 );
+
+
+  TEST_IMM_SRC1_EQ_DEST( 6, andi, 0x00000000, 0xff00ff00, 0x0f0 );
+
+  TEST_IMM_DEST_BYPASS( 7,  0, andi, 0x00000700, 0x0ff00ff0, 0x70f );
+  TEST_IMM_DEST_BYPASS( 8,  1, andi, 0x000000f0, 0x00ff00ff, 0x0f0 );
+  TEST_IMM_DEST_BYPASS( 9,  2, andi, 0xf00ff00f, 0xf00ff00f, 0xf0f );
+
+  TEST_IMM_SRC1_BYPASS( 10, 0, andi, 0x00000700, 0x0ff00ff0, 0x70f );
+  TEST_IMM_SRC1_BYPASS( 11, 1, andi, 0x000000f0, 0x00ff00ff, 0x0f0 );
+  TEST_IMM_SRC1_BYPASS( 12, 2, andi, 0x0000000f, 0xf00ff00f, 0x70f );
+
+  TEST_IMM_ZEROSRC1( 13, andi, 0, 0x0f0 );
+  TEST_IMM_ZERODEST( 14, andi, 0x00ff00ff, 0x70f );
+
+//  auipc.S
+
+  TEST_CASE(2, a0, 10000, \
+    .align 3; \
+    lla a0, 1f + 10000; \
+    jal a1, 1f; \
+    1: sub a0, a0, a1; \
+  )
+
+  TEST_CASE(3, a0, -10000, \
+    .align 3; \
+    lla a0, 1f - 10000; \
+    jal a1, 1f; \
+    1: sub a0, a0, a1; \
+  )
+
+//beq.S
+  TEST_BR2_OP_TAKEN( 2, beq,  0,  0 );
+  TEST_BR2_OP_TAKEN( 3, beq,  1,  1 );
+  TEST_BR2_OP_TAKEN( 4, beq, -1, -1 );
+
+  TEST_BR2_OP_NOTTAKEN( 5, beq,  0,  1 );
+  TEST_BR2_OP_NOTTAKEN( 6, beq,  1,  0 );
+  TEST_BR2_OP_NOTTAKEN( 7, beq, -1,  1 );
+  TEST_BR2_OP_NOTTAKEN( 8, beq,  1, -1 );
+
+  TEST_BR2_SRC12_BYPASS( 9,  0, 0, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 10, 0, 1, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 11, 0, 2, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 12, 1, 0, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 13, 1, 1, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 14, 2, 0, beq, 0, -1 );
+
+  TEST_BR2_SRC12_BYPASS( 15, 0, 0, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 16, 0, 1, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 17, 0, 2, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 18, 1, 0, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 19, 1, 1, beq, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 20, 2, 0, beq, 0, -1 );
+
+  TEST_CASE( 21, x1, 3, \
+    li  x1, 1; \
+    beq x0, x0, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//bge.S
+
+
+  TEST_BR2_OP_TAKEN( 2, bge,  0,  0 );
+  TEST_BR2_OP_TAKEN( 3, bge,  1,  1 );
+  TEST_BR2_OP_TAKEN( 4, bge, -1, -1 );
+  TEST_BR2_OP_TAKEN( 5, bge,  1,  0 );
+  TEST_BR2_OP_TAKEN( 6, bge,  1, -1 );
+  TEST_BR2_OP_TAKEN( 7, bge, -1, -2 );
+
+  TEST_BR2_OP_NOTTAKEN(  8, bge,  0,  1 );
+  TEST_BR2_OP_NOTTAKEN(  9, bge, -1,  1 );
+  TEST_BR2_OP_NOTTAKEN( 10, bge, -2, -1 );
+  TEST_BR2_OP_NOTTAKEN( 11, bge, -2,  1 );
+
+  TEST_BR2_SRC12_BYPASS( 12, 0, 0, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 13, 0, 1, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 14, 0, 2, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 15, 1, 0, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 16, 1, 1, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 17, 2, 0, bge, -1, 0 );
+
+  TEST_BR2_SRC12_BYPASS( 18, 0, 0, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 19, 0, 1, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 20, 0, 2, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 21, 1, 0, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 22, 1, 1, bge, -1, 0 );
+  TEST_BR2_SRC12_BYPASS( 23, 2, 0, bge, -1, 0 );
+
+  TEST_CASE( 24, x1, 3, \
+    li  x1, 1; \
+    bge x1, x0, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//BGEU.S
+  TEST_BR2_OP_TAKEN( 2, bgeu, 0x00000000, 0x00000000 );
+  TEST_BR2_OP_TAKEN( 3, bgeu, 0x00000001, 0x00000001 );
+  TEST_BR2_OP_TAKEN( 4, bgeu, 0xffffffff, 0xffffffff );
+  TEST_BR2_OP_TAKEN( 5, bgeu, 0x00000001, 0x00000000 );
+  TEST_BR2_OP_TAKEN( 6, bgeu, 0xffffffff, 0xfffffffe );
+  TEST_BR2_OP_TAKEN( 7, bgeu, 0xffffffff, 0x00000000 );
+
+  TEST_BR2_OP_NOTTAKEN(  8, bgeu, 0x00000000, 0x00000001 );
+  TEST_BR2_OP_NOTTAKEN(  9, bgeu, 0xfffffffe, 0xffffffff );
+  TEST_BR2_OP_NOTTAKEN( 10, bgeu, 0x00000000, 0xffffffff );
+  TEST_BR2_OP_NOTTAKEN( 11, bgeu, 0x7fffffff, 0x80000000 );
+
+  TEST_BR2_SRC12_BYPASS( 12, 0, 0, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 13, 0, 1, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 14, 0, 2, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 15, 1, 0, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 16, 1, 1, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 17, 2, 0, bgeu, 0xefffffff, 0xf0000000 );
+
+  TEST_BR2_SRC12_BYPASS( 18, 0, 0, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 19, 0, 1, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 20, 0, 2, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 21, 1, 0, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 22, 1, 1, bgeu, 0xefffffff, 0xf0000000 );
+  TEST_BR2_SRC12_BYPASS( 23, 2, 0, bgeu, 0xefffffff, 0xf0000000 );
+
+  TEST_CASE( 24, x1, 3, \
+    li  x1, 1; \
+    bgeu x1, x0, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//BLT.s
+
+  TEST_BR2_OP_TAKEN( 2, blt,  0,  1 );
+  TEST_BR2_OP_TAKEN( 3, blt, -1,  1 );
+  TEST_BR2_OP_TAKEN( 4, blt, -2, -1 );
+
+  TEST_BR2_OP_NOTTAKEN( 5, blt,  1,  0 );
+  TEST_BR2_OP_NOTTAKEN( 6, blt,  1, -1 );
+  TEST_BR2_OP_NOTTAKEN( 7, blt, -1, -2 );
+  TEST_BR2_OP_NOTTAKEN( 8, blt,  1, -2 );
+
+
+  TEST_BR2_SRC12_BYPASS( 9,  0, 0, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 10, 0, 1, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 11, 0, 2, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 12, 1, 0, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 13, 1, 1, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 14, 2, 0, blt, 0, -1 );
+
+  TEST_BR2_SRC12_BYPASS( 15, 0, 0, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 16, 0, 1, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 17, 0, 2, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 18, 1, 0, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 19, 1, 1, blt, 0, -1 );
+  TEST_BR2_SRC12_BYPASS( 20, 2, 0, blt, 0, -1 );
+
+  TEST_CASE( 21, x1, 3, \
+    li  x1, 1; \
+    blt x0, x1, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//BLTU
+
+  TEST_BR2_OP_TAKEN( 2, bltu, 0x00000000, 0x00000001 );
+  TEST_BR2_OP_TAKEN( 3, bltu, 0xfffffffe, 0xffffffff );
+  TEST_BR2_OP_TAKEN( 4, bltu, 0x00000000, 0xffffffff );
+
+  TEST_BR2_OP_NOTTAKEN( 5, bltu, 0x00000001, 0x00000000 );
+  TEST_BR2_OP_NOTTAKEN( 6, bltu, 0xffffffff, 0xfffffffe );
+  TEST_BR2_OP_NOTTAKEN( 7, bltu, 0xffffffff, 0x00000000 );
+  TEST_BR2_OP_NOTTAKEN( 8, bltu, 0x80000000, 0x7fffffff );
+
+  TEST_BR2_SRC12_BYPASS( 9,  0, 0, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 10, 0, 1, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 11, 0, 2, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 12, 1, 0, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 13, 1, 1, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 14, 2, 0, bltu, 0xf0000000, 0xefffffff );
+
+  TEST_BR2_SRC12_BYPASS( 15, 0, 0, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 16, 0, 1, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 17, 0, 2, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 18, 1, 0, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 19, 1, 1, bltu, 0xf0000000, 0xefffffff );
+  TEST_BR2_SRC12_BYPASS( 20, 2, 0, bltu, 0xf0000000, 0xefffffff );
+
+
+  TEST_CASE( 21, x1, 3, \
+    li  x1, 1; \
+    bltu x0, x1, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//BNE
+  TEST_BR2_OP_TAKEN( 2, bne,  0,  1 );
+  TEST_BR2_OP_TAKEN( 3, bne,  1,  0 );
+  TEST_BR2_OP_TAKEN( 4, bne, -1,  1 );
+  TEST_BR2_OP_TAKEN( 5, bne,  1, -1 );
+
+  TEST_BR2_OP_NOTTAKEN( 6, bne,  0,  0 );
+  TEST_BR2_OP_NOTTAKEN( 7, bne,  1,  1 );
+  TEST_BR2_OP_NOTTAKEN( 8, bne, -1, -1 );
+
+  TEST_BR2_SRC12_BYPASS( 9,  0, 0, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 10, 0, 1, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 11, 0, 2, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 12, 1, 0, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 13, 1, 1, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 14, 2, 0, bne, 0, 0 );
+
+  TEST_BR2_SRC12_BYPASS( 15, 0, 0, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 16, 0, 1, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 17, 0, 2, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 18, 1, 0, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 19, 1, 1, bne, 0, 0 );
+  TEST_BR2_SRC12_BYPASS( 20, 2, 0, bne, 0, 0 );
+
+  TEST_CASE( 21, x1, 3, \
+    li  x1, 1; \
+    bne x1, x0, 1f; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+    addi x1, x1, 1; \
+1:  addi x1, x1, 1; \
+    addi x1, x1, 1; \
+  )
+
+//JAL
+
+  TEST_CASE( 3, ra, 3, \
+    li  ra, 1; \
+    jal x0, 1f; \
+    addi ra, ra, 1; \
+    addi ra, ra, 1; \
+    addi ra, ra, 1; \
+    addi ra, ra, 1; \
+1:  addi ra, ra, 1; \
+    addi ra, ra, 1; \
+  )
+
+//JALR
+
+  TEST_JALR_SRC1_BYPASS( 4, 0, jalr );
+  TEST_JALR_SRC1_BYPASS( 5, 1, jalr );
+  TEST_JALR_SRC1_BYPASS( 6, 2, jalr );
+
+  TEST_CASE( 7, t0, 4, \
+    li  t0, 1; \
+    la  t1, 1f; \
+    jr  t1, -4; \
+    addi t0, t0, 1; \
+    addi t0, t0, 1; \
+    addi t0, t0, 1; \
+    addi t0, t0, 1; \
+1:  addi t0, t0, 1; \
+    addi t0, t0, 1; \
+  )
+
+//LB
+
+  TEST_LD_OP( 2, lb, 0xffffffffffffffff, 0,  tdat );
+  TEST_LD_OP( 3, lb, 0x0000000000000000, 1,  tdat );
+  TEST_LD_OP( 4, lb, 0xfffffffffffffff0, 2,  tdat );
+  TEST_LD_OP( 5, lb, 0x000000000000000f, 3, tdat );
+
+
+  TEST_LD_OP( 6, lb, 0xffffffffffffffff, -3, tdat4 );
+  TEST_LD_OP( 7, lb, 0x0000000000000000, -2,  tdat4 );
+  TEST_LD_OP( 8, lb, 0xfffffffffffffff0, -1,  tdat4 );
+  TEST_LD_OP( 9, lb, 0x000000000000000f, 0,   tdat4 );
+
+
+  TEST_CASE( 10, x5, 0xffffffffffffffff, \
+    la  x1, tdat; \
+    addi x1, x1, -32; \
+    lb x5, 32(x1); \
+  )
+
+
+  TEST_CASE( 11, x5, 0x0000000000000000, \
+    la  x1, tdat; \
+    addi x1, x1, -6; \
+    lb x5, 7(x1); \
+  )
+
+  TEST_LD_DEST_BYPASS( 12, 0, lb, 0xfffffffffffffff0, 1, tdat2 );
+  TEST_LD_DEST_BYPASS( 13, 1, lb, 0x000000000000000f, 1, tdat3 );
+  TEST_LD_DEST_BYPASS( 14, 2, lb, 0x0000000000000000, 1, tdat1 );
+
+  TEST_LD_SRC1_BYPASS( 15, 0, lb, 0xfffffffffffffff0, 1, tdat2 );
+  TEST_LD_SRC1_BYPASS( 16, 1, lb, 0x000000000000000f, 1, tdat3 );
+  TEST_LD_SRC1_BYPASS( 17, 2, lb, 0x0000000000000000, 1, tdat1 );
+
+  TEST_CASE( 18, x2, 2, \
+    la  x5, tdat; \
+    lb  x2, 0(x5); \
+    li  x2, 2; \
+  )
+
+  TEST_CASE( 19, x2, 2, \
+    la  x5, tdat; \
+    lb  x2, 0(x5); \
+    nop; \
+    li  x2, 2; \
+  )
+
+
+//LBU
+
+ TEST_LD_OP( 2, lbu, 0x00000000000000ff, 0,  tdat );
+  TEST_LD_OP( 3, lbu, 0x0000000000000000, 1,  tdat );
+  TEST_LD_OP( 4, lbu, 0x00000000000000f0, 2,  tdat );
+  TEST_LD_OP( 5, lbu, 0x000000000000000f, 3, tdat );
+
+  TEST_LD_OP( 6, lbu, 0x00000000000000ff, -3, tdat4 );
+  TEST_LD_OP( 7, lbu, 0x0000000000000000, -2,  tdat4 );
+  TEST_LD_OP( 8, lbu, 0x00000000000000f0, -1,  tdat4 );
+  TEST_LD_OP( 9, lbu, 0x000000000000000f, 0,   tdat4 );
+
+  TEST_CASE( 10, x5, 0x00000000000000ff, \
+    la  x1, tdat; \
+    addi x1, x1, -32; \
+    lbu x5, 32(x1); \
+  )
+
+  TEST_CASE( 11, x5, 0x0000000000000000, \
+    la  x1, tdat; \
+    addi x1, x1, -6; \
+    lbu x5, 7(x1); \
+  )
+
+  TEST_LD_DEST_BYPASS( 12, 0, lbu, 0x00000000000000f0, 1, tdat2 );
+  TEST_LD_DEST_BYPASS( 13, 1, lbu, 0x000000000000000f, 1, tdat3 );
+  TEST_LD_DEST_BYPASS( 14, 2, lbu, 0x0000000000000000, 1, tdat1 );
+
+  TEST_LD_SRC1_BYPASS( 15, 0, lbu, 0x00000000000000f0, 1, tdat2 );
+  TEST_LD_SRC1_BYPASS( 16, 1, lbu, 0x000000000000000f, 1, tdat3 );
+  TEST_LD_SRC1_BYPASS( 17, 2, lbu, 0x0000000000000000, 1, tdat1 );
+
+  TEST_CASE( 18, x2, 2, \
+    la  x5, tdat; \
+    lbu  x2, 0(x5); \
+    li  x2, 2; \
+  )
+
+  TEST_CASE( 19, x2, 2, \
+    la  x5, tdat; \
+    lbu  x2, 0(x5); \
+    nop; \
+    li  x2, 2; \
+  )
+
+//LHU
+  TEST_LD_OP( 2, lhu, 0x00000000000000ff, 0,  tdat );
+  TEST_LD_OP( 3, lhu, 0x000000000000ff00, 2,  tdat );
+  TEST_LD_OP( 4, lhu, 0x0000000000000ff0, 4,  tdat );
+  TEST_LD_OP( 5, lhu, 0x000000000000f00f, 6, tdat );
+
+  TEST_LD_OP( 6, lhu, 0x00000000000000ff, -6,  tdat4 );
+  TEST_LD_OP( 7, lhu, 0x000000000000ff00, -4,  tdat4 );
+  TEST_LD_OP( 8, lhu, 0x0000000000000ff0, -2,  tdat4 );
+  TEST_LD_OP( 9, lhu, 0x000000000000f00f,  0, tdat4 );
+
+  TEST_CASE( 10, x5, 0x00000000000000ff, \
+    la  x1, tdat; \
+    addi x1, x1, -32; \
+    lhu x5, 32(x1); \
+  )
+
+  TEST_CASE( 11, x5, 0x000000000000ff00, \
+    la  x1, tdat; \
+    addi x1, x1, -5; \
+    lhu x5, 7(x1); \
+  )
+
+  TEST_LD_DEST_BYPASS( 12, 0, lhu, 0x0000000000000ff0, 2, tdat2 );
+  TEST_LD_DEST_BYPASS( 13, 1, lhu, 0x000000000000f00f, 2, tdat3 );
+  TEST_LD_DEST_BYPASS( 14, 2, lhu, 0x000000000000ff00, 2, tdat1 );
+
+  TEST_LD_SRC1_BYPASS( 15, 0, lhu, 0x0000000000000ff0, 2, tdat2 );
+  TEST_LD_SRC1_BYPASS( 16, 1, lhu, 0x000000000000f00f, 2, tdat3 );
+  TEST_LD_SRC1_BYPASS( 17, 2, lhu, 0x000000000000ff00, 2, tdat1 );
+
+  TEST_CASE( 18, x2, 2, \
+    la  x5, tdat; \
+    lhu  x2, 0(x5); \
+    li  x2, 2; \
+  )
+
+  TEST_CASE( 19, x2, 2, \
+    la  x5, tdat; \
+    lhu  x2, 0(x5); \
+    nop; \
+    li  x2, 2; \
+  )
+
+//LUI
+
+  TEST_CASE( 2, x1, 0x0000000000000000, lui x1, 0x00000 );
+  TEST_CASE( 3, x1, 0xfffffffffffff800, lui x1, 0xfffff;sra x1,x1,1);
+  TEST_CASE( 4, x1, 0x00000000000007ff, lui x1, 0x7ffff;sra x1,x1,20);
+  TEST_CASE( 5, x1, 0xfffffffffffff800, lui x1, 0x80000;sra x1,x1,20);
+
+  TEST_CASE( 6, x0, 0, lui x0, 0x80000 );
+
+//lw
+
+ TEST_LD_OP( 2, lw, 0x0000000000ff00ff, 0,  tdat );
+  TEST_LD_OP( 3, lw, 0xffffffffff00ff00, 4,  tdat );
+  TEST_LD_OP( 4, lw, 0x000000000ff00ff0, 8,  tdat );
+  TEST_LD_OP( 5, lw, 0xfffffffff00ff00f, 12, tdat );
+
+
+  TEST_LD_OP( 6, lw, 0x0000000000ff00ff, -12, tdat4 );
+  TEST_LD_OP( 7, lw, 0xffffffffff00ff00, -8,  tdat4 );
+  TEST_LD_OP( 8, lw, 0x000000000ff00ff0, -4,  tdat4 );
+  TEST_LD_OP( 9, lw, 0xfffffffff00ff00f, 0,   tdat4 );
+
+  TEST_CASE( 10, x5, 0x0000000000ff00ff, \
+    la  x1, tdat; \
+    addi x1, x1, -32; \
+    lw x5, 32(x1); \
+  )
+
+  TEST_CASE( 11, x5, 0xffffffffff00ff00, \
+    la  x1, tdat; \
+    addi x1, x1, -3; \
+    lw x5, 7(x1); \
+  )
+
+  TEST_LD_DEST_BYPASS( 12, 0, lw, 0x000000000ff00ff0, 4, tdat2 );
+  TEST_LD_DEST_BYPASS( 13, 1, lw, 0xfffffffff00ff00f, 4, tdat3 );
+  TEST_LD_DEST_BYPASS( 14, 2, lw, 0xffffffffff00ff00, 4, tdat1 );
+
+  TEST_LD_SRC1_BYPASS( 15, 0, lw, 0x000000000ff00ff0, 4, tdat2 );
+  TEST_LD_SRC1_BYPASS( 16, 1, lw, 0xfffffffff00ff00f, 4, tdat3 );
+  TEST_LD_SRC1_BYPASS( 17, 2, lw, 0xffffffffff00ff00, 4, tdat1 );
+
+  TEST_CASE( 18, x2, 2, \
+    la  x5, tdat; \
+    lw  x2, 0(x5); \
+    li  x2, 2; \
+  )
+
+  TEST_CASE( 19, x2, 2, \
+    la  x5, tdat; \
+    lw  x2, 0(x5); \
+    nop; \
+    li  x2, 2; \
+  )
+
+//or
+
+  TEST_RR_OP( 2, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_OP( 3, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_OP( 4, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_OP( 5, or, 0xf0fff0ff, 0xf00ff00f, 0xf0f0f0f0 );
+
+  TEST_RR_SRC1_EQ_DEST( 6, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC2_EQ_DEST( 7, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC12_EQ_DEST( 8, or, 0xff00ff00, 0xff00ff00 );
+
+  TEST_RR_DEST_BYPASS( 9,  0, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_DEST_BYPASS( 10, 1, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_DEST_BYPASS( 11, 2, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_SRC12_BYPASS( 12, 0, 0, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 13, 0, 1, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC12_BYPASS( 14, 0, 2, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 15, 1, 0, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC12_BYPASS( 16, 1, 1, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC12_BYPASS( 17, 2, 0, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_SRC21_BYPASS( 18, 0, 0, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 19, 0, 1, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC21_BYPASS( 20, 0, 2, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 21, 1, 0, or, 0xff0fff0f, 0xff00ff00, 0x0f0f0f0f );
+  TEST_RR_SRC21_BYPASS( 22, 1, 1, or, 0xfff0fff0, 0x0ff00ff0, 0xf0f0f0f0 );
+  TEST_RR_SRC21_BYPASS( 23, 2, 0, or, 0x0fff0fff, 0x00ff00ff, 0x0f0f0f0f );
+
+  TEST_RR_ZEROSRC1( 24, or, 0xff00ff00, 0xff00ff00 );
+  TEST_RR_ZEROSRC2( 25, or, 0x00ff00ff, 0x00ff00ff );
+  TEST_RR_ZEROSRC12( 26, or, 0 );
+  TEST_RR_ZERODEST( 27, or, 0x11111111, 0x22222222 );
+
+//ori
+
+  TEST_IMM_OP( 2, ori, 0xffffffffffffff0f, 0xffffffffff00ff00, 0xf0f );
+  TEST_IMM_OP( 3, ori, 0x000000000ff00ff0, 0x000000000ff00ff0, 0x0f0 );
+  TEST_IMM_OP( 4, ori, 0x0000000000ff07ff, 0x0000000000ff00ff, 0x70f );
+  TEST_IMM_OP( 5, ori, 0xfffffffff00ff0ff, 0xfffffffff00ff00f, 0x0f0 );
+
+  TEST_IMM_SRC1_EQ_DEST( 6, ori, 0xff00fff0, 0xff00ff00, 0x0f0 );
+
+  TEST_IMM_DEST_BYPASS( 7,  0, ori, 0x000000000ff00ff0, 0x000000000ff00ff0, 0x0f0 );
+  TEST_IMM_DEST_BYPASS( 8,  1, ori, 0x0000000000ff07ff, 0x0000000000ff00ff, 0x70f );
+  TEST_IMM_DEST_BYPASS( 9,  2, ori, 0xfffffffff00ff0ff, 0xfffffffff00ff00f, 0x0f0 );
+
+  TEST_IMM_SRC1_BYPASS( 10, 0, ori, 0x000000000ff00ff0, 0x000000000ff00ff0, 0x0f0 );
+  TEST_IMM_SRC1_BYPASS( 11, 1, ori, 0xffffffffffffffff, 0x0000000000ff00ff, 0xf0f );
+  TEST_IMM_SRC1_BYPASS( 12, 2, ori, 0xfffffffff00ff0ff, 0xfffffffff00ff00f, 0x0f0 );
+
+  TEST_IMM_ZEROSRC1( 13, ori, 0x0f0, 0x0f0 );
+  TEST_IMM_ZERODEST( 14, ori, 0x00ff00ff, 0x70f );
+

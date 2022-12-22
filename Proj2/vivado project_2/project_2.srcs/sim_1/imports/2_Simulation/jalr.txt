@@ -1,0 +1,110 @@
+gcc -o Bin2Data ./Utils/Bin2Data.c
+./Utils/riscv32-elf-as jalr.S -o jalr.o -march=rv32i
+./Utils/riscv32-elf-ld jalr.o -o jalr.om
+./Utils/riscv32-elf-objcopy --dump-section .text=jalr-Inst.bin jalr.om
+./Bin2Data jalr-Inst.bin jalr.inst
+./Utils/riscv32-elf-objcopy -O binary jalr.om jalr-Data.bin
+./Bin2Data jalr-Data.bin jalr.data
+./Utils/objdump -d jalr.om 
+
+jalr.om:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010080 <_start>:
+   10080:	00000013          	nop
+
+00010084 <test_2>:
+   10084:	00200193          	li	gp,2
+   10088:	00000293          	li	t0,0
+   1008c:	00000317          	auipc	t1,0x0
+   10090:	01030313          	addi	t1,t1,16 # 1009c <target_2>
+   10094:	000302e7          	jalr	t0,t1
+
+00010098 <linkaddr_2>:
+   10098:	0e00006f          	j	10178 <fail>
+
+0001009c <target_2>:
+   1009c:	00000317          	auipc	t1,0x0
+   100a0:	ffc30313          	addi	t1,t1,-4 # 10098 <linkaddr_2>
+   100a4:	0c629a63          	bne	t0,t1,10178 <fail>
+
+000100a8 <test_3>:
+   100a8:	00300193          	li	gp,3
+   100ac:	00000297          	auipc	t0,0x0
+   100b0:	01028293          	addi	t0,t0,16 # 100bc <target_3>
+   100b4:	000282e7          	jalr	t0,t0
+
+000100b8 <linkaddr_3>:
+   100b8:	0c00006f          	j	10178 <fail>
+
+000100bc <target_3>:
+   100bc:	00000317          	auipc	t1,0x0
+   100c0:	ffc30313          	addi	t1,t1,-4 # 100b8 <linkaddr_3>
+   100c4:	0a629a63          	bne	t0,t1,10178 <fail>
+
+000100c8 <test_4>:
+   100c8:	00400193          	li	gp,4
+   100cc:	00000213          	li	tp,0
+   100d0:	00000317          	auipc	t1,0x0
+   100d4:	01030313          	addi	t1,t1,16 # 100e0 <test_4+0x18>
+   100d8:	000309e7          	jalr	s3,t1
+   100dc:	08301e63          	bne	zero,gp,10178 <fail>
+   100e0:	00120213          	addi	tp,tp,1 # 1 <_start-0x1007f>
+   100e4:	00200293          	li	t0,2
+   100e8:	fe5214e3          	bne	tp,t0,100d0 <test_4+0x8>
+
+000100ec <test_5>:
+   100ec:	00500193          	li	gp,5
+   100f0:	00000213          	li	tp,0
+   100f4:	00000317          	auipc	t1,0x0
+   100f8:	01430313          	addi	t1,t1,20 # 10108 <test_5+0x1c>
+   100fc:	00000013          	nop
+   10100:	000309e7          	jalr	s3,t1
+   10104:	06301a63          	bne	zero,gp,10178 <fail>
+   10108:	00120213          	addi	tp,tp,1 # 1 <_start-0x1007f>
+   1010c:	00200293          	li	t0,2
+   10110:	fe5212e3          	bne	tp,t0,100f4 <test_5+0x8>
+
+00010114 <test_6>:
+   10114:	00600193          	li	gp,6
+   10118:	00000213          	li	tp,0
+   1011c:	00000317          	auipc	t1,0x0
+   10120:	01830313          	addi	t1,t1,24 # 10134 <test_6+0x20>
+   10124:	00000013          	nop
+   10128:	00000013          	nop
+   1012c:	000309e7          	jalr	s3,t1
+   10130:	04301463          	bne	zero,gp,10178 <fail>
+   10134:	00120213          	addi	tp,tp,1 # 1 <_start-0x1007f>
+   10138:	00200293          	li	t0,2
+   1013c:	fe5210e3          	bne	tp,t0,1011c <test_6+0x8>
+
+00010140 <test_7>:
+   10140:	00100293          	li	t0,1
+   10144:	00000317          	auipc	t1,0x0
+   10148:	01c30313          	addi	t1,t1,28 # 10160 <test_7+0x20>
+   1014c:	ffc30067          	jr	-4(t1)
+   10150:	00128293          	addi	t0,t0,1
+   10154:	00128293          	addi	t0,t0,1
+   10158:	00128293          	addi	t0,t0,1
+   1015c:	00128293          	addi	t0,t0,1
+   10160:	00128293          	addi	t0,t0,1
+   10164:	00128293          	addi	t0,t0,1
+   10168:	00400e93          	li	t4,4
+   1016c:	00700193          	li	gp,7
+   10170:	01d29463          	bne	t0,t4,10178 <fail>
+   10174:	00301463          	bne	zero,gp,1017c <pass>
+
+00010178 <fail>:
+   10178:	00000a6f          	jal	s4,10178 <fail>
+
+0001017c <pass>:
+   1017c:	00100193          	li	gp,1
+
+00010180 <finish1>:
+   10180:	00000a6f          	jal	s4,10180 <finish1>
+   10184:	c0001073          	unimp
+	...
+rm -f *.om *.o *.bin Bin2Data
+rm jalr-Inst.bin jalr-Data.bin

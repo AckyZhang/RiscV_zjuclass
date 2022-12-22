@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1650553759">
+  <File Type="PA-TCL" Name="RV32Core.tcl"/>
+  <File Type="REPORTS-TCL" Name="RV32Core_reports.tcl"/>
+  <File Type="RDS-RDS" Name="RV32Core.vds"/>
+  <File Type="RDS-UTIL" Name="RV32Core_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="RV32Core_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="RV32Core.dcp"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/Parameters.v">
+      <FileInfo SFType="VHeader">
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/Parameters.v"/>
+        <Attr Name="ImportTime" Val="1649762552"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="IsVisible" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/ALU.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/ALU.v"/>
+        <Attr Name="ImportTime" Val="1649937832"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/BranchDecisionMaking.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/BranchDecisionMaking.v"/>
+        <Attr Name="ImportTime" Val="1650476305"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/ControlUnit.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/ControlUnit.v"/>
+        <Attr Name="ImportTime" Val="1650437271"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/DataExt.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/DataExt.v"/>
+        <Attr Name="ImportTime" Val="1649777583"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/BRAMModule/DataRam.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/BRAMModule/DataRam.v"/>
+        <Attr Name="ImportTime" Val="1649817516"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/EXSegReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/EXSegReg.v"/>
+        <Attr Name="ImportTime" Val="1650439711"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/HarzardUnit.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/HarzardUnit.v"/>
+        <Attr Name="ImportTime" Val="1650542357"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/IDSegReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/IDSegReg.v"/>
+        <Attr Name="ImportTime" Val="1649777871"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/IFSegReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/IFSegReg.v"/>
+        <Attr Name="ImportTime" Val="1644217402"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/ImmOperandUnit.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/ImmOperandUnit.v"/>
+        <Attr Name="ImportTime" Val="1649777823"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/BRAMModule/InstructionRam.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/BRAMModule/InstructionRam.v"/>
+        <Attr Name="ImportTime" Val="1644729048"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/MEMSegReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/MEMSegReg.v"/>
+        <Attr Name="ImportTime" Val="1644217420"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/NPC_Generator.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/NPC_Generator.v"/>
+        <Attr Name="ImportTime" Val="1650012321"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/RegisterFile.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/RegisterFile.v"/>
+        <Attr Name="ImportTime" Val="1644217450"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/WBSegReg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/WBSegReg.v"/>
+        <Attr Name="ImportTime" Val="1649777882"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/1_CPUCore_src/RV32Core.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1_CPUCore_src/RV32Core.v"/>
+        <Attr Name="ImportTime" Val="1650439663"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="RV32Core"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
